@@ -2,7 +2,7 @@ package easy.invest.exceptions;
 
 public class UsernameAlreadyExists extends Exception {
 
-    private String username;
+    private final String username;
 
     public UsernameAlreadyExists(String username) {
         super(String.format("An account with the username %s already exists!", username));
