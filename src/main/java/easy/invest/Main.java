@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import easy.invest.FileSystemService;
+import easy.invest.services.FileSystemService;
 import easy.invest.services.UserService;
 
 import java.nio.file.Files;

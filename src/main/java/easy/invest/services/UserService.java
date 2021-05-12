@@ -2,15 +2,15 @@ package easy.invest.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
-import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
-import org.loose.fis.sre.model.User;
+import easy.invest.exceptions.UsernameAlreadyExists;
+import easy.invest.model.User;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
-import static org.loose.fis.sre.services.FileSystemService.getPathToFile;
+import static easy.invest.services.FileSystemService.getPathToFile;
 
 public class UserService {
 
@@ -24,15 +24,15 @@ public class UserService {
         userRepository = database.getRepository(User.class);
     }
 
-    public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
+    public static void addUser(String username, String password, String role) throws UsernameAlreadyExists {
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(username, encodePassword(username, password), role));
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExists{
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))
-                throw new UsernameAlreadyExistsException(username);
+                throw new UsernameAlreadyExists(username);
         }
     }
 

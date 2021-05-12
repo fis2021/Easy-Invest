@@ -5,8 +5,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-//import easy.invest.exceptions.UsernameAlreadyExistsException;
-import easy.invest.UserService;
+import easy.invest.exceptions.UsernameAlreadyExists;
+import easy.invest.services.UserService;
 
 public class RegistrationController {
 
@@ -29,7 +29,7 @@ public class RegistrationController {
         try {
             UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
             registrationMessage.setText("Account created successfully!");
-        } //catch (UsernameAlreadyExistsException e) {
+        }catch (UsernameAlreadyExists e) {
             registrationMessage.setText(e.getMessage());
         }
     }
