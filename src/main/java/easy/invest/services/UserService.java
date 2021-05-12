@@ -56,6 +56,19 @@ public class UserService {
         return md;
     }
 
+    public String verify(String username, String password) {
+        for(User user : userRepository.find()) {
+            if(username.equals(user.getUsername())){
+                if(encodePassword(username,password).equals(user.getPassword())) {
+                    return user.getRole();
+                }
+                else {
+                    return "parola incorecta";
+                }
+            }
+        }
+        return "cont inexistent";
+    }
 
 }
 

@@ -24,5 +24,9 @@ public class LoginController {
         window.setScene(registrationScene);
         window.show();
     }
+
+    public void login() throws Exception {
+        if()
+    }
 }
 
