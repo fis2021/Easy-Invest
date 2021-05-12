@@ -23,7 +23,6 @@ public class RegistrationController {
     public void initialize() {
         role.getItems().addAll("Project Manager", "Investor");
     }
-
     @FXML
     public void handleRegisterAction() {
         try {
