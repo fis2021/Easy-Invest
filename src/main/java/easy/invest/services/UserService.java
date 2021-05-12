@@ -11,7 +11,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
 import static easy.invest.services.FileSystemService.getPathToFile;
-
 public class UserService {
 
     private static ObjectRepository<User> userRepository;

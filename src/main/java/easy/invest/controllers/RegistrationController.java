@@ -9,7 +9,6 @@ import easy.invest.exceptions.UsernameAlreadyExists;
 import easy.invest.services.UserService;
 
 public class RegistrationController {
-
     @FXML
     private Text registrationMessage;
     @FXML
