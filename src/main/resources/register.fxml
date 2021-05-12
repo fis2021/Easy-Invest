@@ -1,34 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Text?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
-          vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="easy.invest.controllers.RegistrationController">
-    <padding>
-        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
-    </padding>
-    <Text id="title-text" text="FIS - Student Manager" GridPane.columnIndex="0" GridPane.columnSpan="2"
-          GridPane.rowIndex="0"/>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easy.invest.controllers.RegistrationController">
+    <children>
+        <AnchorPane layoutX="14.0" layoutY="145.0" prefHeight="400.0" prefWidth="650.0">
+            <children>
+                <ImageView fitHeight="400.0" fitWidth="650.0" layoutX="-16.0" layoutY="-146.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@poza.jpg" />
+                    </image>
+                </ImageView>
+                <Button layoutX="5.0" layoutY="103.0" onAction="#handleRegisterAction" text="Register">
+                </Button>
+                <HBox alignment="bottom_right" layoutX="18.0" layoutY="261.0" prefHeight="16.0" prefWidth="100.0" spacing="10" />
 
-    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <ChoiceBox fx:id="role" layoutX="-4.0" layoutY="59.0" prefWidth="150.0">
+                </ChoiceBox>
 
-    <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label layoutX="8.0" layoutY="24.0" prefHeight="35.0" prefWidth="51.0">
+                </Label>
 
-    <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="usernameField" layoutX="-2.0" layoutY="-73.0" />
 
-    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label layoutX="6.0" layoutY="-37.0" text="Password:">
+                </Label>
 
-    <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <Label layoutX="4.0" layoutY="-98.0" text="Username:">
+                </Label>
 
-    <ChoiceBox fx:id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-    </ChoiceBox>
+                <PasswordField fx:id="passwordField" layoutX="-2.0" layoutY="-1.0" />
+            </children>
+        </AnchorPane>
+        <Text id="title-text" fill="WHITE" layoutX="80.0" layoutY="32.0" smooth="false" text="Easy Invest">
 
-    <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button onAction="#handleRegisterAction" text="Register"/>
-    </HBox>
-</GridPane>
-
+        </Text>
+    </children>
+</AnchorPane>
