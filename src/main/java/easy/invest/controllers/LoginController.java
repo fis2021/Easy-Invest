@@ -1,5 +1,6 @@
 package easy.invest.controllers;
 
+import easy.invest.services.UserService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +19,7 @@ public class LoginController {
     @FXML
     private PasswordField password;
     public void goToRegistration() throws Exception {
-        Parent registrationWindow = FXMLLoader.load(getClass().getResource("register.fxml"));
+        Parent registrationWindow = FXMLLoader.load(getClass().getResource("/register.fxml"));
         Scene registrationScene = new Scene(registrationWindow);
         Stage window = new Stage();
         window.setScene(registrationScene);
@@ -26,7 +27,17 @@ public class LoginController {
     }
 
     public void login() throws Exception {
-        if()
+        if (UserService.verify(username.getText(), password.getText()) == 1) { //go to project manager first screen
+            return;
+        }
+        if (UserService.verify(username.getText(), password.getText()) == 2) { //go to sponsor first screen
+            return;
+        }
+        if (UserService.verify(username.getText(), password.getText()) == 0) {
+            loginMessage.setText("Incorrect password!");
+            return;
+        }
+        loginMessage.setText("There is no account with that username!");
     }
 }
 

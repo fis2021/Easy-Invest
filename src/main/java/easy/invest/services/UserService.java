@@ -56,18 +56,23 @@ public class UserService {
         return md;
     }
 
-    public String verify(String username, String password) {
+    public static int verify(String username, String password) {
         for(User user : userRepository.find()) {
             if(username.equals(user.getUsername())){
                 if(encodePassword(username,password).equals(user.getPassword())) {
-                    return user.getRole();
+                    if(user.getRole() == "Project Manager") {
+                        return 1;
+                    }
+                    else{
+                        return 2;
+                    }
                 }
                 else {
-                    return "parola incorecta";
+                    return 0;
                 }
             }
         }
-        return "cont inexistent";
+        return -1;
     }
 
 }
