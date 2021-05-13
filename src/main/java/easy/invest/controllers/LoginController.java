@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.FileWriter;
+
 public class LoginController {
     public static Stage stg;
     @FXML
@@ -31,12 +33,22 @@ public class LoginController {
     }
 
     public void login() throws Exception {
-        if (UserService.verify(username.getText(), password.getText()) == 1) { //go to project manager first screen
+        if (UserService.verify(username.getText(), password.getText()) == 1) {
+            //go to project manager first screen
             loginMessage.setText("successful login!");
+            String file = "log.txt";
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(username.getText()+" "+"Project Manager");
+            fileWriter.close();
             return;
         }
-        if (UserService.verify(username.getText(), password.getText()) == 2) { //go to sponsor first screen
+        if (UserService.verify(username.getText(), password.getText()) == 2) {
+            //go to sponsor first screen
             loginMessage.setText("successful login!");
+            String file = "log.txt";
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(username.getText()+" "+"Investor");
+            fileWriter.close();
             return;
         }
         if (UserService.verify(username.getText(), password.getText()) == 0) {
