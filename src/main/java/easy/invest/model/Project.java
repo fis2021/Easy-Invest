@@ -25,4 +25,20 @@ public class Project {
         this.funds = Integer.parseInt(funds);
     }
 
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public String getLocation() {
+        return this.location;
+    }
+
+    public int getFunds(String funds) {
+        return this.funds;
+    }
+
 }
