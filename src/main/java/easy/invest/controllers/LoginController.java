@@ -30,6 +30,8 @@ public class LoginController {
         Stage window = new Stage();
         window.setScene(registrationScene);
         window.show();
+        Stage stage = (Stage) loginMessage.getScene().getWindow();
+        stage.close();
     }
 
     public void login() throws Exception {
@@ -40,7 +42,8 @@ public class LoginController {
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(username.getText()+" "+"Project Manager");
             fileWriter.close();
-            return;
+            Stage stage = (Stage) loginMessage.getScene().getWindow();
+            stage.close();
         }
         if (UserService.verify(username.getText(), password.getText()) == 2) {
             //go to sponsor first screen
@@ -49,7 +52,8 @@ public class LoginController {
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(username.getText()+" "+"Investor");
             fileWriter.close();
-            return;
+            Stage stage = (Stage) loginMessage.getScene().getWindow();
+            stage.close();
         }
         if (UserService.verify(username.getText(), password.getText()) == 0) {
             loginMessage.setText("Incorrect password!");

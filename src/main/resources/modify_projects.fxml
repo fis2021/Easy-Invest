@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.*?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ModifyProjects"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="easy.invest.controllers.ModifyProjectsController"
+            prefHeight="400.0" prefWidth="650.0">
+    <children>
+        <AnchorPane layoutX="14.0" layoutY="145.0" prefHeight="400.0" prefWidth="650.0">
+            <children>
+                <ImageView fitHeight="400.0" fitWidth="650.0" layoutX="-15.0" layoutY="-140.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@projects.jpg" />
+                    </image>
+                </ImageView>
+                <Button layoutX="7.0" layoutY="105.0" onAction="#goToCreate" text="Create Project">
+                    <font>
+                        <Font name = "System Bold" size = '18' />
+                    </font>
+                </Button>
+                <Button layoutX="7.0" layoutY="160.0" onAction="#goToEdit" text="Edit Project">
+                    <font>
+                        <Font name="System Bold" size="18" />
+                    </font>
+                </Button>
+                <Button layoutX="7.0" layoutY="160.0" onAction="#goToDelete" text="Edit Project">
+                    <font>
+                        <Font name="System Bold" size="18" />
+                    </font>
+                </Button>
 
+            </children>
+        </AnchorPane>
+        <Text id="title-text" fill="WHITE" layoutX="82.0" layoutY="35.0" smooth="false" text="Modify my projects">
+            <font>
+                <Font name = "System Bold" size = '18' />
+            </font>
+        </Text>
+    </children>
 </AnchorPane>
