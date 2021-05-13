@@ -36,26 +36,26 @@ public class LoginController {
 
     public void login() throws Exception {
         if (UserService.verify(username.getText(), password.getText()) == 1) {
-            //go to project manager first screen
             loginMessage.setText("successful login!");
             String file = "log.txt";
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(username.getText()+" "+"Project Manager");
-            fileWriter.close();
-            Stage stage = (Stage) loginMessage.getScene().getWindow();
-            stage.close();
-        }
-        if (UserService.verify(username.getText(), password.getText()) == 2) {
-            loginMessage.setText("successful login!");
-            String file = "log.txt";
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(username.getText()+" "+"Investor");
             fileWriter.close();
             Parent modifyWindow = FXMLLoader.load(getClass().getResource("/modify_projects.fxml"));
             Scene modifyScene = new Scene(modifyWindow);
             Stage window = new Stage();
             window.setScene(modifyScene);
             window.show();
+            Stage stage = (Stage) loginMessage.getScene().getWindow();
+            stage.close();
+        }
+        if (UserService.verify(username.getText(), password.getText()) == 2) {
+            //go to investor first screen
+            loginMessage.setText("successful login!");
+            String file = "log.txt";
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(username.getText()+" "+"Investor");
+            fileWriter.close();
             Stage stage = (Stage) loginMessage.getScene().getWindow();
             stage.close();
         }
