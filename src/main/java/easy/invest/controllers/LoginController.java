@@ -18,6 +18,10 @@ public class LoginController {
     private TextField username;
     @FXML
     private PasswordField password;
+
+    @FXML
+    public static String user;
+
     public void goToRegistration() throws Exception {
         Parent registrationWindow = FXMLLoader.load(getClass().getResource("/register.fxml"));
         Scene registrationScene = new Scene(registrationWindow);
@@ -28,9 +32,11 @@ public class LoginController {
 
     public void login() throws Exception {
         if (UserService.verify(username.getText(), password.getText()) == 1) { //go to project manager first screen
+            loginMessage.setText("successful login!");
             return;
         }
         if (UserService.verify(username.getText(), password.getText()) == 2) { //go to sponsor first screen
+            loginMessage.setText("successful login!");
             return;
         }
         if (UserService.verify(username.getText(), password.getText()) == 0) {

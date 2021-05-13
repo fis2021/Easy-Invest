@@ -25,14 +25,14 @@
                     </font>
                 </Button>
                 <HBox alignment="bottom_right" layoutX="20.0" layoutY="265.0" prefHeight="16.0" prefWidth="100.0" spacing="10" />
-
+                <Text fx:id="loginMessage" fill="#FFFFFF" layoutX="200.0" layoutY="10.0" wrappingWidth="87.0" />
                 <Label layoutX="10.0" layoutY="26.0" prefHeight="35.0" prefWidth="51.0">
                     <font>
                         <Font name="System Bold" size="18" />
                     </font>
                 </Label>
 
-                <TextField fx:id="usernameField" layoutY="-70.0" />
+                <TextField fx:id="username" layoutY="-70.0" />
 
                 <Label layoutX="6.0" layoutY="-34.0" text="Password:" textFill="WHITE">
                     <font>
@@ -46,7 +46,7 @@
                     </font>
                 </Label>
 
-                <PasswordField fx:id="passwordField" />
+                <PasswordField fx:id="password" />
             </children>
         </AnchorPane>
         <Text id="title-text" fill="WHITE" layoutX="82.0" layoutY="35.0" smooth="false" text="Easy Invest">
