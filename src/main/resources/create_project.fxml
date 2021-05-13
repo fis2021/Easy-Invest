@@ -54,6 +54,7 @@
                       <Font name="System Bold" size="18" />
                   </font>
               </Text>
+            <Text id="errorMessage" fill="WHITE" layoutX="394.0" layoutY="175.0" smooth="false" text="All fields are manatory!!" visible="false" wrappingWidth="148.79999999999995" />
             </children>
         </AnchorPane>
     </children>
