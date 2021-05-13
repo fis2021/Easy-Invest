@@ -1,5 +1,4 @@
 package easy.invest;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +8,7 @@ import easy.invest.services.UserService;
 import easy.invest.services.FileSystemService;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import javafx.stage.Stage;
 
 public class Main extends Application {
 
