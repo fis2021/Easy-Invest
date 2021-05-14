@@ -1,5 +1,6 @@
 package easy.invest.controllers;
 
+import easy.invest.services.ProjectService;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
