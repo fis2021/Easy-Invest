@@ -10,7 +10,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -24,33 +23,22 @@ public class CreateProjectController {
     @FXML
     private TextField fundsField;
     @FXML
-    private Text errorMessage;
-
+    private Text Message;
     public void create() throws IOException {
         if (titleField.getText() == null || descriptionField.getText() == null || locationField.getText() == null || fundsField.getText() == null) {
-            errorMessage.setVisible(true);
+            Parent mmandatoryWindow = FXMLLoader.load(getClass().getResource("/mandatory.fxml"));
+            Scene mandatoryScene = new Scene(mandatoryWindow);
+            Stage window = new Stage();
+            window.setScene(mandatoryScene);
+            window.show();
         } else {
-            try {
-                Scanner scanner = null;
-                String username = "";
-                try {
-                    scanner = new Scanner(new File("log.txt"));
-                    username = scanner.next();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                ProjectService.addProject(titleField.getText(), descriptionField.getText(), (String) locationField.getText(), fundsField.getText(),username);
-                Parent modifyWindow = FXMLLoader.load(getClass().getResource("/modify_projects.fxml"));
-                Scene modifyScene = new Scene(modifyWindow);
-                Stage window = new Stage();
-                window.setScene(modifyScene);
-                window.show();
-                Stage stage = (Stage) errorMessage.getScene().getWindow();
-                stage.close();
-            } catch (Exception e) {
-                errorMessage.setVisible(true);
-                errorMessage.setText(e.getMessage());
-            }
+            Scanner scanner = null;
+            String username = "";
+            scanner = new Scanner(new File("log.txt"));
+            username = scanner.next();
+            ProjectService.addProject(titleField.getText(), descriptionField.getText(), (String) locationField.getText(), fundsField.getText(),username);
+            Stage stage = (Stage)titleField.getScene().getWindow();
+            stage.close();
         }
     }
 
@@ -61,7 +49,7 @@ public class CreateProjectController {
         Stage window = new Stage();
         window.setScene(modifyScene);
         window.show();
-        Stage stage = (Stage) errorMessage.getScene().getWindow();
+        Stage stage = (Stage)titleField.getScene().getWindow();
         stage.close();
     }
 }
