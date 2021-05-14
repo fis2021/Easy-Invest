@@ -25,9 +25,11 @@ public class CreateProjectController {
             errorMessage.setVisible(true);
         } else {
             try {
-                Scanner username = null;
+                Scanner scanner = null;
+                String username = "";
                 try {
-                    username = new Scanner(new File("log.txt"));
+                    scanner = new Scanner(new File("log.txt"));
+                    username = scanner.next();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
