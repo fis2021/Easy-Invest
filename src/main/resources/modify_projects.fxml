@@ -22,12 +22,12 @@
                         <Font name = "System Bold" size = '18' />
                     </font>
                 </Button>
-                <Button layoutX="250" layoutY="105.0" onAction="#goToEdit" text="Edit Project">
+                <Button layoutX="250" layoutY="105.0" onAction="#goToEdit" text="Edit Project" visible="false">
                     <font>
                         <Font name="System Bold" size="18" />
                     </font>
                 </Button>
-                <Button layoutX="250" layoutY="175.0" onAction="#goToDelete" text="Delete Project">
+                <Button layoutX="250" layoutY="175.0" onAction="#goToDelete" text="Delete Project" visible="false">
                     <font>
                         <Font name="System Bold" size="18" />
                     </font>
