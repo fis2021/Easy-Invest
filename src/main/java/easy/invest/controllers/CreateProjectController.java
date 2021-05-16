@@ -1,12 +1,12 @@
 package easy.invest.controllers;
 
+import easy.invest.exceptions.TitleAlreadyExists;
 import easy.invest.services.ProjectService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -23,10 +23,9 @@ public class CreateProjectController {
     @FXML
     private TextField fundsField;
     @FXML
-    private Text Message;
-    public void create() throws IOException {
+    public void create() throws IOException, TitleAlreadyExists {
         if (titleField.getText() == null || descriptionField.getText() == null || locationField.getText() == null || fundsField.getText() == null) {
-            Parent mmandatoryWindow = FXMLLoader.load(getClass().getResource("/mandatory.fxml"));
+            Parent mandatoryWindow = FXMLLoader.load(getClass().getResource("/mandatory.fxml"));
             Scene mandatoryScene = new Scene(mandatoryWindow);
             Stage window = new Stage();
             window.setScene(mandatoryScene);
