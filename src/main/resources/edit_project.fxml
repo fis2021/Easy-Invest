@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="easy.invest.controllers.EditProjectController"
             prefHeight="400.0" prefWidth="600.0">
-
+    <children>
+        <AnchorPane layoutX="14.0" layoutY="147.0" prefHeight="262.0" prefWidth="636.0">
+            <children>
+                <ImageView fitHeight="400.0" fitWidth="650.0" layoutX="-15.0" layoutY="-140.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@projects.jpg" />
+                    </image>
+                </ImageView>
+                <Button layoutX="140.0" layoutY="190.0" onAction="#update" text="Update">
+                    <font>
+                        <Font name="System Bold" size="18" />
+                    </font>
+                </Button>
+                <Button layoutX="404.0" layoutY="190.0" onAction="#cancel" text="Cancel">
+                    <font>
+                        <Font name="System Bold" size="18" />
+                    </font>
+                </Button>
+                <Label layoutX="66.0" layoutY="-10.0" text="Project title:" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="titleField" layoutX="66.0" layoutY="16.0" />
+                <Label layoutX="66.0" layoutY="69.0" prefHeight="17.0" prefWidth="113.0" text="Description:" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="descriptionField" layoutX="66.0" layoutY="96.0" prefHeight="70" prefWidth="194.0" />
+                <Label layoutX="393.0" layoutY="19.0" text="Location:" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="locationField" layoutX="393.0" layoutY="47.0" />
+                <Label layoutX="390.0" layoutY="89.0" text="Necessary Funds" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="fundsField" layoutX="393.0" layoutY="118.0" />
+                <Text id="title-text" fill="WHITE" layoutX="250.0" layoutY="-27.0" smooth="false" text="Create project">
+                    <font>
+                        <Font name="System Bold" size="18" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>
