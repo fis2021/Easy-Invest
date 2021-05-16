@@ -16,7 +16,7 @@
 
             </children>
         </AnchorPane>
-        <Text id="title-text" layoutX="228.0" layoutY="140.0" smooth="false" text="All fields are mandatory!!" wrappingWidth="217.8310546875">
+        <Text id="title" layoutX="228.0" layoutY="140.0" smooth="false" text="All fields are mandatory!!" wrappingWidth="217.8310546875">
             <font>
                 <Font name="System Bold" size="18" />
             </font>
