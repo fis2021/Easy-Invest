@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="414.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easy.invest.controllers.MandatoryController">
+    <children>
+        <AnchorPane layoutX="14.0" layoutY="145.0" prefHeight="400.0" prefWidth="650.0">
+            <children>
+                <Button layoutX="300.0" layoutY="35.0" onAction="#ok" text="OK">
+                    <font>
+                        <Font name="System Bold" size="18" />
+                    </font>
+                </Button>
+
+            </children>
+        </AnchorPane>
+        <Text id="title-text" layoutX="228.0" layoutY="140.0" smooth="false" text="All fields are mandatory!!" wrappingWidth="217.8310546875">
+            <font>
+                <Font name="System Bold" size="18" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>
