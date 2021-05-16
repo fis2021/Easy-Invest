@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -31,13 +32,27 @@ public class CreateProjectController {
             window.setScene(mandatoryScene);
             window.show();
         } else {
-            Scanner scanner = null;
-            String username = "";
-            scanner = new Scanner(new File("log.txt"));
-            username = scanner.next();
-            ProjectService.addProject(titleField.getText(), descriptionField.getText(), (String) locationField.getText(), fundsField.getText(),username);
-            Stage stage = (Stage)titleField.getScene().getWindow();
-            stage.close();
+            try {
+                Scanner scanner = null;
+                String username = "";
+                try {
+                    scanner = new Scanner(new File("log.txt"));
+                    username = scanner.next();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                ProjectService.addProject(titleField.getText(), descriptionField.getText(), (String) locationField.getText(), fundsField.getText(),username);
+                Parent modifyWindow = FXMLLoader.load(getClass().getResource("/modify_projects.fxml"));
+                Scene modifyScene = new Scene(modifyWindow);
+                Stage window = new Stage();
+                window.setScene(modifyScene);
+                window.show();
+                Stage stage = (Stage) errorMessage.getScene().getWindow();
+                stage.close();
+            } catch (Exception e) {
+                errorMessage.setVisible(true);
+                errorMessage.setText(e.getMessage());
+            }
         }
     }
 
@@ -48,7 +63,7 @@ public class CreateProjectController {
         Stage window = new Stage();
         window.setScene(modifyScene);
         window.show();
-        Stage stage = (Stage)titleField.getScene().getWindow();
+        Stage stage = (Stage) errorMessage.getScene().getWindow();
         stage.close();
     }
 }
