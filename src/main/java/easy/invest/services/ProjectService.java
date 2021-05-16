@@ -7,6 +7,8 @@ import org.dizitart.no2.objects.ObjectRepository;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -35,24 +37,15 @@ public class ProjectService {
         }
     }
 
-    public static Project[] verify() throws FileNotFoundException {
-        Project[] projects = new Project[10];
-        int contor = 0;
+    public static List<Project> verify() throws FileNotFoundException {
+        List<Project> projects=new ArrayList<Project>();
         for(Project project : projectRepository.find()) {
             Scanner scanner = null;
             String username = "";
             scanner = new Scanner(new File("log.txt"));
             username = scanner.next();
             if(username.equals(project.getUsername())){
-                if (projects.length <= contor) {
-                    Project[] aux = new Project[contor*2];
-                    for(int i = 0; i < contor; i++) {
-                        aux[i] = projects[i];
-                        projects = aux;
-                    }
-                }
-                projects[contor] = project;
-                contor++;
+                projects.add(project);
             }
         }
         return projects;
